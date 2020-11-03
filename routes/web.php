@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\login;
+use App\Http\Controllers\admin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,7 @@ use App\Http\Controllers\login;
 */
 
 Route::get('/', [login::class, 'index']);
+
+//admin route
+Route::get('/', [admin::class, 'index']);
+
