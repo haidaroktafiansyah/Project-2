@@ -12,13 +12,13 @@
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 685px;">
           <table class="table table-head-fixed text-nowrap">
-            <thead>
+            <thead class="thead-dark">
               <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Reason</th>
+                <th>NIM</th>
+                <th>Nama Mahasiswa</th>
+                <th>Email</th>
+                <th>Kontak</th>
+                <th>Skripsi</th>
               </tr>
             </thead>
             <tbody>
