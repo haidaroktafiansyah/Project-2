@@ -17,7 +17,7 @@ class admin extends Controller
         //query
         $mahasiswa = mahasiswaModel::all();
         //redirect or test data
-        dump($mahasiswa);
+        // dump($mahasiswa);
         return view('admin.homeadmin',compact('mahasiswa'));
     }
 
