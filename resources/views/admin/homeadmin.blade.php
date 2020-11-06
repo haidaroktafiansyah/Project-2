@@ -14,30 +14,38 @@
           <table class="table table-head-fixed text-nowrap">
             <thead class="thead">
               <tr>
-                <th>NIM</th>
-                <th>Nama Mahasiswa</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Kontak</th>
+                <th>Nama</th>
+                <th>ID User</th>
+                <th>credetial</th>
                 <th>Skripsi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($mahasiswa as $mhs)
+              @foreach ($user as $user)
                   <tr>
                       <td>
-                        {{$mhs->nim}}
+                        {{$user->username}}
                       </td>
                       <td>
-                        {{$mhs->nama}}
+                        {{$user->email}}
                       </td>
                       <td>
-                        {{$mhs->email}}
+                        {{$user->kontak}}
                       </td>
                       <td>
-                        {{$mhs->kontak}}
+                        {{$user->nama}}
                       </td>
                       <td>
-                        {{$mhs->skripsi_id_skripsi}}
+                        {{$user->id_identitas}}
+                      </td>
+                      <td>
+                        {{$user->creadential}}
+                      </td>
+                      <td>
+                        {{$user->id_skripsi}}
                       </td>
                   </tr>
               @endforeach

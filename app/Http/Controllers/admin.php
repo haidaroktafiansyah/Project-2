@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\mahasiswaModel;
+use App\Models\userModel;
 
 class admin extends Controller
 {
@@ -15,10 +15,10 @@ class admin extends Controller
     public function index()
     {
         //query
-        $mahasiswa = mahasiswaModel::all();
+        $user = userModel::all();
         //redirect or test data
         // dump($mahasiswa);
-        return view('admin.homeadmin',compact('mahasiswa'));
+        return view('admin.homeadmin',compact('user'));
     }
 
     /**
