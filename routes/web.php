@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\login;
-use App\Http\Controllers\admin;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SiswaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +15,25 @@ use App\Http\Controllers\admin;
 |
 */
 
-Route::get('/', [login::class, 'index']);
+//trace comment XD (that may need)
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-//admin route
-Route::get('/', [admin::class, 'index']);
+//route for login control
+Route::get('/', [AuthController::class, 'index']);
+Route::post('proses_login', [AuthController::class, 'proses_login']);
+Route::get('logout', [AuthController::class, 'logout']);
 
-Route::get('/', function () {
-    return view('welcome');
+//route group for admin
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => 'cek_login:admin'], function () {
+        Route::get('admin', [AdminController::class, 'index']);
+    });
 });
 
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => 'cek_login:siswa'], function () {
+        Route::get('siswa', [SiswaController::class, 'index']);
+    });
+});

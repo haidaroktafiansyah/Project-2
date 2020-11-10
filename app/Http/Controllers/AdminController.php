@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\userModel;
+use App\Models\User;
 
-class admin extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class admin extends Controller
     public function index()
     {
         //query
-        $user = userModel::all();
+        $user = User::all();
         //redirect or test data
         // dump($mahasiswa);
         return view('admin.homeadmin',compact('user'));

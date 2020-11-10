@@ -35,6 +35,11 @@
                     <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{url('logout')}}" class="nav-link">Logout</a>
+                </li>
+            </ul>
         </nav>
         <!-- /.navbar -->
 

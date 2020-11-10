@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class login extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class login extends Controller
      */
     public function index()
     {
-        return view('general.login');
+        return view('siswa.homesiswa');
     }
 
     /**

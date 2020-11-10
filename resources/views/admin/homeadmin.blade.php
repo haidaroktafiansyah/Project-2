@@ -42,7 +42,7 @@
                         {{$user->id_identitas}}
                       </td>
                       <td>
-                        {{$user->creadential}}
+                        {{$user->level}}
                       </td>
                       <td>
                         {{$user->id_skripsi}}
