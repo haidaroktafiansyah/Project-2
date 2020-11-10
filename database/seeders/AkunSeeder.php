@@ -16,7 +16,7 @@ class AkunSeeder extends Seeder
     {
         $user = [
             [
-                'name' => 'admin',
+                'username' => 'admin',
                 'email' => 'admin@mail.com',
                 'password' => bcrypt('admin'),
                 'level' => 'admin',
@@ -26,7 +26,7 @@ class AkunSeeder extends Seeder
                 'id_skripsi' => '1',
             ],
             [
-                'name' => 'admin2',
+                'username' => 'admin2',
                 'email' => 'admin2@mail.com',
                 'password' => 'admin',
                 'level' => 'admin',
@@ -36,7 +36,7 @@ class AkunSeeder extends Seeder
                 'id_skripsi' => '1',
             ],
             [
-                'name' => 'siswa',
+                'username' => 'siswa',
                 'email' => 'siswa@mail.com',
                 'password' => bcrypt('siswa'),
                 'level' => 'siswa',
