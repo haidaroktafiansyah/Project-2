@@ -19,3 +19,8 @@ Route::get('/', [login::class, 'index']);
 //admin route
 Route::get('/', [admin::class, 'index']);
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
