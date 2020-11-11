@@ -57,7 +57,10 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.crud_user.admincreateuser');
+        //array for defining level
+        $level = array("admin", "mahasiswa", "dosen", "kajur");
+
+        return view('admin.crud_user.admincreateuser', compact('level'));
     }
 
     /**
@@ -68,12 +71,22 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
+
+        //validate
         $request->validate([
-            'nama' => 'required',
-            'nim' => 'required|numeric',
+            'username' => 'required',
             'email' => 'required|email',
-            'jurusan' => 'required'
+            'password' => 'required',
+            'level' => 'required',
+            'kontak' => 'required',
+            'nama' => 'required',
+            'id_identitas' => 'required|numeric',
         ]);
+
+        User::create($request->all());
+
+        return redirect('admin')->with('status','Data user Di Tambah');
     }
 
     /**
@@ -93,9 +106,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        //array for defining level
+        $level = array("admin", "mahasiswa", "dosen", "kajur");
+
+        //get 1 user
+        $user =  DB::table('users')->where('id', $request->id)->get();
+
+        return view('admin.crud_user.adminupdateuser', compact('user'),compact('level'));
     }
 
     /**
@@ -105,9 +124,34 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'level' => 'required',
+            'kontak' => 'required',
+            'nama' => 'required',
+            'id_identitas' => 'required|numeric',
+        ]);
+
+        // dd($request);
+
+        //i update the data bcz couldn't get the id :(
+        User::where('username', $request->username)
+        ->update([
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'level' => $request->level,
+            'kontak' => $request->kontak,
+            'nama' => $request->nama,
+            'id_identitas' => $request->id_identitas,
+            'id_skripsi' => $request->id_skripsi,
+        ]);
+
+        return redirect('admin')->with('status','Data user Di Update');
     }
 
     /**

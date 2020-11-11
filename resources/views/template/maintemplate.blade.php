@@ -29,7 +29,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="admin" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -37,7 +37,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{url('logout')}}" class="nav-link">Logout</a>
+                    <a href="{{ url('logout') }}" class="nav-link">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -55,7 +55,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin Page</a>
+                        <a href="admin" class="d-block">Admin Page</a>
                     </div>
                 </div>
 
@@ -241,17 +241,32 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Dashboard</h1>
+                            <h1 class="m-0 text-dark">@yield('title_page')</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
 
+            {{-- flashsession --}}
+            <section class="content">
+                <div class="container-fluid">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
+            </section>
+
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    @yield('section')
+                    <section class="content">
+                        <div class="container-fluid">
+                            @yield('section')
+                        </div>
+                    </section>
                 </div>
             </section>
             <!-- /.content -->
@@ -283,7 +298,28 @@
         $(document).ready(function() {
             bsCustomFileInput.init();
         });
-
+    </script>
+    <!-- DataTables -->
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
     </script>
 </body>
 

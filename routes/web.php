@@ -36,10 +36,16 @@ Route::group(['middleware' => ['auth']], function () {
         //admin for Admin
         Route::get('adminpageadmin', [AdminController::class, 'alladmin']);
 
+
+
         //admin CRUD for User account
         //create post
         Route::get('admincreateuser',[AdminController::class, 'create']);
         Route::post('adminstoreuser',[AdminController::class, 'store']);
+
+        //update
+        Route::post('adminedituser',[AdminController::class, 'edit']);
+        Route::patch('adminupdateuser',[AdminController::class, 'update']);
     });
 });
 

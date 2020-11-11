@@ -6,6 +6,7 @@
 @section('section')
     <div class="row">
         <div class="col-12">
+            <!-- /.card -->
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Table All User</h3>
@@ -13,9 +14,9 @@
                 <div>
                     <a type="button" class="btn btn-primary m-3" href="admincreateuser">Tambah Data User</a>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 685px;">
-                    <table class="table table-head-fixed text-nowrap">
+                <!-- /.card-table -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead class="thead">
                             <tr>
                                 <th>Username</th>
@@ -25,6 +26,7 @@
                                 <th>ID User</th>
                                 <th>credetial</th>
                                 <th>Skripsi</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,12 +53,25 @@
                                     <td>
                                         {{ $user->id_skripsi }}
                                     </td>
+                                    <td>
+                                        <form action="adminedituser" method="POST" class="d-inline">
+                                            @method('post')
+                                            @csrf
+                                                <input type="hidden" name="id" value="{{$user->id}}">
+                                            <button type="submit" class="btn btn-primary">edit</button>
+                                        </form>
+                                        <form action="" method="POST" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
+                <!-- /.card-table -->
             </div>
             <!-- /.card -->
         </div>
