@@ -45,6 +45,7 @@
                         @foreach ($level as $lvl)
                             @if ($lvl == old('level'))
                                 <option value="{{ $lvl }}" selected>{{ $lvl }}</option>
+                            @else <option value="{{ $lvl }}">{{ $lvl }}</option>
                             @endif
                         @endforeach
                     </select>
@@ -74,16 +75,6 @@
                     <input type="text" class="form-control @error('id_identitas') is-invalid @enderror" id="id_identitas"
                         name="id_identitas" value="{{ old('id_identitas') }}">
                     @error('id_identitas')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="id_skripsi">ID_Skripsi</label>
-                    <input type="text" class="form-control @error('id_skripsi') is-invalid @enderror" id="id_skripsi"
-                        name="id_skripsi" value="{{ old('id_skripsi') }}">
-                    @error('id_skripsi')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
