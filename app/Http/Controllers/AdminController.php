@@ -160,8 +160,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        User::where('username', $request->username)->delete();
+
+        return redirect('admin')->with('status','Data user Di Hapus');
     }
 }

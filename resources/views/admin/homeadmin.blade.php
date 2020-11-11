@@ -63,7 +63,7 @@
                                         <form action="admindeleteuser" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $user->id }}">
+                                            <input type="hidden" name="username" value="{{ $user->username }}">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>

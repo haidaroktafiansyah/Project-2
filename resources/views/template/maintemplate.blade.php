@@ -106,7 +106,7 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
-                                    Forms
+                                    Skripsi
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -114,7 +114,7 @@
                                 <li class="nav-item">
                                     <a href="pages/forms/general.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>General Elements</p>
+                                        <p>All Skripsi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

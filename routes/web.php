@@ -16,7 +16,7 @@ use App\Http\Controllers\SiswaController;
 */
 
 //route for login control
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::post('proses_login', [AuthController::class, 'proses_login']);
 Route::get('logout', [AuthController::class, 'logout']);
 
@@ -24,6 +24,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => 'cek_login:admin'], function () {
 
+        //admin page user
         //admin home Dashboard
         Route::get('admin', [AdminController::class, 'index']);
 
@@ -36,8 +37,6 @@ Route::group(['middleware' => ['auth']], function () {
         //admin for Admin
         Route::get('adminpageadmin', [AdminController::class, 'alladmin']);
 
-
-
         //admin CRUD for User account
         //create post
         Route::get('admincreateuser',[AdminController::class, 'create']);
@@ -49,6 +48,12 @@ Route::group(['middleware' => ['auth']], function () {
 
         //update
         Route::post('admindeleteuser',[AdminController::class, 'destroy']);
+
+
+
+
+        //Admin Skripsi Control
+        Route::get('skripsi',[AdminController::class, 'create']);
     });
 });
 
