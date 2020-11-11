@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 class AdminController extends Controller
@@ -14,11 +16,38 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //query
+        //query to get user
         $user = User::all();
-        //redirect or test data
-        // dump($mahasiswa);
+
+        //redirect
         return view('admin.homeadmin',compact('user'));
+    }
+
+    public function allmahasiswa()
+    {
+        //query to all mahasiswa
+        $user =  DB::table('users')->where('level', 'mahasiswa')->get();
+
+        //redirect
+        return view('admin.pagemahasiswa',compact('user'));
+    }
+
+    public function alldosen()
+    {
+        //query to all dosen
+        $user =  DB::table('users')->where('level', 'dosen')->get();
+
+        //redirect
+        return view('admin.pagedosen',compact('user'));
+    }
+
+    public function alladmin()
+    {
+        //query to all admin
+        $user =  DB::table('users')->where('level', 'admin')->get();
+
+        //redirect
+        return view('admin.pageadmin',compact('user'));
     }
 
     /**
@@ -28,7 +57,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.crud_user.admincreateuser');
     }
 
     /**
@@ -39,7 +68,12 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nim' => 'required|numeric',
+            'email' => 'required|email',
+            'jurusan' => 'required'
+        ]);
     }
 
     /**

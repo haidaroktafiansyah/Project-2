@@ -8,10 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Table All User</h3>
-                </div>
-                <div>
-                    <a type="button" class="btn btn-primary m-3" href="admincreateuser">Tambah Data User</a>
+                    <h3 class="card-title">Table Mahasiswa</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0" style="height: 685px;">
