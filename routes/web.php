@@ -46,6 +46,9 @@ Route::group(['middleware' => ['auth']], function () {
         //update
         Route::post('adminedituser',[AdminController::class, 'edit']);
         Route::patch('adminupdateuser',[AdminController::class, 'update']);
+
+        //update
+        Route::post('admindeleteuser',[AdminController::class, 'destroy']);
     });
 });
 
@@ -55,3 +58,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('siswa', [SiswaController::class, 'index']);
     });
 });
+
+//indonesia tanah air pusaka

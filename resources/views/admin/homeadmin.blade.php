@@ -57,12 +57,13 @@
                                         <form action="adminedituser" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
-                                                <input type="hidden" name="id" value="{{$user->id}}">
+                                            <input type="hidden" name="id" value="{{ $user->id }}">
                                             <button type="submit" class="btn btn-primary">edit</button>
                                         </form>
-                                        <form action="" method="POST" class="d-inline">
-                                            @method('delete')
+                                        <form action="admindeleteuser" method="POST" class="d-inline">
+                                            @method('post')
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $user->id }}">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>
