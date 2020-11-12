@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -14,7 +16,19 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('siswa.homesiswa');
+        $nama = Auth::user()->nama;
+        return view('siswa.homesiswa',compact('nama'));
+    }
+
+    public function biodata()
+    {
+        $nama = Auth::user()->nama;
+        $user = DB::table('users')
+        ->where([
+            ['nama', $nama],
+            ['level', 'mahasiswa']])
+        ->get();
+        return view('siswa.biodata',compact('user'));
     }
 
     /**

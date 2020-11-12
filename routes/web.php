@@ -66,10 +66,18 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => 'cek_login:mahasiswa'], function () {
 
+<<<<<<< Updated upstream
         //
         Route::get('siswa', [SiswaController::class, 'index']);
 
         //Biodata
+=======
+        //mahasiswa home Dashboard
+        Route::get('mahasiswa', [SiswaController::class, 'index']);
+
+        //mahasiswa general Biodata
+        Route::get('biodatamahasiswa', [SiswaController::class, 'biodata']);
+>>>>>>> Stashed changes
     });
 });
 
