@@ -43,15 +43,22 @@ Route::group(['middleware' => ['auth']], function () {
         //update
         Route::post('adminedituser',[AdminController::class, 'edit']);
         Route::patch('adminupdateuser',[AdminController::class, 'update']);
-        //update
+        //delete
         Route::post('admindeleteuser',[AdminController::class, 'destroy']);
 
 
         //Admin Skripsi Control
         Route::get('allskripsi',[SkripsiController::class, 'index']);
         //Admin Skripsi CRUD
+        //create
         Route::get('admincreateskripsi',[SkripsiController::class, 'create']);
         Route::post('adminstoreskripsi',[SkripsiController::class, 'store']);
+        //update
+        Route::post('admineditskripsi',[SkripsiController::class, 'edit']);
+        Route::patch('adminupdateskripsi',[SkripsiController::class, 'update']);
+        //delete
+        Route::post('admindeleteskripsi',[SkripsiController::class, 'destroy']);
+
     });
 });
 

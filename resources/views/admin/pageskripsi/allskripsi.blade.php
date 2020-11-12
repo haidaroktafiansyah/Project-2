@@ -38,16 +38,16 @@
                                         {{ $data->admin }}
                                     </td>
                                     <td>
-                                        <form action="adminedituser" method="POST" class="d-inline">
+                                        <form action="admineditskripsi" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $data->id }}">
                                             <button type="submit" class="btn btn-primary">edit</button>
                                         </form>
-                                        <form action="admindeleteuser" method="POST" class="d-inline">
+                                        <form action="admindeleteskripsi" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
-                                            <input type="hidden" name="username" value="{{ $data->id  }}">
+                                            <input type="hidden" name="id" value="{{ $data->id  }}">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use App\Models\skripsipersonal;
 
 class SkripsiController extends Controller
@@ -72,7 +73,7 @@ class SkripsiController extends Controller
         //get id for skripsi to write in user table
         $skripsi =  DB::table('skripsi_personal')->where('id_mahasiswa', $request->mahasiswa)->get();
 
-        // push id skripsi to user able
+        // push id skripsi to user table cz has no foreign key :)
         DB::table('users')
         ->where('id',$request->mahasiswa)
         ->update(
@@ -101,9 +102,18 @@ class SkripsiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        //get current skripsi
+        $skripsi = DB::table('skripsi_personal')->where('skripsi_personal.id_skripsi', $request->id)->get();
+
+        //get mahasiswa all
+        $mhs = DB::table('users')->where('level', 'mahasiswa')->get();
+
+        //get admin all
+        $admin = DB::table('users')->where('level', 'admin')->get();
+
+        return view('admin.pageskripsi.adminupdateskripsi',compact('skripsi','admin','mhs'));
     }
 
     /**
@@ -113,9 +123,29 @@ class SkripsiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'mahasiswa' => 'required',
+            'judul' => 'required',
+            'tema' => 'required',
+            'admin' => 'required',
+        ]);
+
+        // dd($rquest);
+        //insert skripsi to db
+        DB::table('skripsi_personal')
+        ->where('id_skripsi', $request->id)
+        ->update(
+            [
+                'id_mahasiswa' => $request->mahasiswa,
+                'judul' => $request->judul,
+                'tema' => $request->tema,
+                'id_admin' => $request->admin,
+            ]
+        );
+        return redirect('allskripsi')->with('status','Data skripsi Di Ubah');
     }
 
     /**
@@ -124,8 +154,14 @@ class SkripsiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        skripsipersonal::where('id_skripsi', $request->id)->delete();
+        User::where('id_skripsi', $request->id)->update(
+            [
+                'id_skripsi' => NULL,
+            ]
+        );
+        return redirect('allskripsi')->with('status','Data skripsi DI Hapus');
     }
 }
