@@ -8,61 +8,46 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Table All User</h3>
-                </div>
-                <div>
-                    <a type="button" class="btn btn-primary m-3" href="admincreateuser">Tambah Data User</a>
+                    <h3 class="card-title">Table All skripsi</h3>
                 </div>
                 <!-- /.card-table -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead class="thead">
                             <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Kontak</th>
-                                <th>Nama</th>
-                                <th>ID User</th>
-                                <th>credetial</th>
-                                <th>Skripsi</th>
+                                <th>Mahasiswa</th>
+                                <th>Judul</th>
+                                <th>Tema</th>
+                                <th>Pengurus</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($user as $user)
+                            @foreach ($skripsi as $data)
                                 <tr>
                                     <td>
-                                        {{ $user->username }}
+                                        {{ $data->mahasiswa }}
                                     </td>
                                     <td>
-                                        {{ $user->email }}
+                                        {{ $data->judul }}
                                     </td>
                                     <td>
-                                        {{ $user->kontak }}
+                                        {{ $data->tema }}
                                     </td>
                                     <td>
-                                        {{ $user->nama }}
+                                        {{ $data->admin }}
                                     </td>
                                     <td>
-                                        {{ $user->id_identitas }}
-                                    </td>
-                                    <td>
-                                        {{ $user->level }}
-                                    </td>
-                                    <td>
-                                        {{ $user->id_skripsi }}
-                                    </td>
-                                    <td>
-                                        <form action="adminedituser" method="POST" class="d-inline">
+                                        <form action="admineditskripsi" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
-                                            <input type="hidden" name="id" value="{{ $user->id }}">
+                                            <input type="hidden" name="id" value="{{ $data->id }}">
                                             <button type="submit" class="btn btn-primary">edit</button>
                                         </form>
-                                        <form action="admindeleteuser" method="POST" class="d-inline">
+                                        <form action="admindeleteskripsi" method="POST" class="d-inline">
                                             @method('post')
                                             @csrf
-                                            <input type="hidden" name="username" value="{{ $user->username }}">
+                                            <input type="hidden" name="id" value="{{ $data->id  }}">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>

@@ -29,7 +29,7 @@ class AdminController extends Controller
         $user =  DB::table('users')->where('level', 'mahasiswa')->get();
 
         //redirect
-        return view('admin.pagemahasiswa',compact('user'));
+        return view('admin.pageuser.pagemahasiswa',compact('user'));
     }
 
     public function alldosen()
@@ -38,7 +38,7 @@ class AdminController extends Controller
         $user =  DB::table('users')->where('level', 'dosen')->get();
 
         //redirect
-        return view('admin.pagedosen',compact('user'));
+        return view('admin.pageuser.pagedosen',compact('user'));
     }
 
     public function alladmin()
@@ -47,7 +47,7 @@ class AdminController extends Controller
         $user =  DB::table('users')->where('level', 'admin')->get();
 
         //redirect
-        return view('admin.pageadmin',compact('user'));
+        return view('admin.pageuser.pageadmin',compact('user'));
     }
 
     /**
@@ -160,8 +160,10 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        User::where('username', $request->username)->delete();
+
+        return redirect('admin')->with('status','Data user Di Hapus');
     }
 }
