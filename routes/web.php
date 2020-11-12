@@ -65,7 +65,11 @@ Route::group(['middleware' => ['auth']], function () {
 //route group for mahasiswa
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => 'cek_login:mahasiswa'], function () {
+
+        //
         Route::get('siswa', [SiswaController::class, 'index']);
+
+        //Biodata
     });
 });
 
