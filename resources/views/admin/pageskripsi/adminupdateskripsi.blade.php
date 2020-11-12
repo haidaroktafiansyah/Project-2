@@ -1,5 +1,5 @@
 {{-- {{ dd($mhs, $skripsi, $admin) }} --}}
-@extends('template.maintemplate')
+@extends('template.admin.maintemplate')
 
 @section('title', 'Admin')
 
