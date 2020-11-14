@@ -17,6 +17,7 @@
         </div>
     </div>
     @foreach ($user as $user)
+    <div class="d-flex justify-content-center">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
@@ -41,5 +42,6 @@
             </div>
             <!-- /.card -->
         </div>
+    </div>
     @endforeach
 @endsection
