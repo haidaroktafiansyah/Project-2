@@ -55,7 +55,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="admin" class="d-block">{{ $nama }}</a>
+                        <a href="mahasiswa" class="d-block">{{ $nama }}</a>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
+                        <li class="nav-item has-treeview">
                             <a href="mahasiswa" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -74,21 +74,12 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="biodatamahasiswa" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    General
-                                    <i class="fas fa-angle-left right"></i>
+                                    Biodata Mahasiswa
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="biodatamahasiswa" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Biodata Mahasiswa</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -273,7 +264,6 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -290,18 +280,18 @@
     <script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
     <!-- JQVMap -->
     <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    {{-- <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
     <!-- jQuery Knob Chart -->
-    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
     <!-- daterangepicker -->
-    <script src="plugins/moment/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('plugins/moment/moment.min.js')}}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
     <!-- Summernote -->
-    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
     <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> --}}
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

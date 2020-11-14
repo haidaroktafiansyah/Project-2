@@ -28,7 +28,7 @@ class SiswaController extends Controller
             ['nama', $nama],
             ['level', 'mahasiswa']])
         ->get();
-        return view('siswa.biodata',compact('user'));
+        return view('siswa.biodata',compact('user','nama'));
     }
 
     /**
